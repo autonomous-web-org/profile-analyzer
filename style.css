@@ -1,6 +1,8 @@
+/* style.css */
+
 /* Neumorphic UI Variables */
 :root {
-    --bg: #e0e5ec;
+    --bg: #ffffff;        /* was #e0e5ec */
     --fg: #ffffff;
     --shadow-light: #ffffff;
     --shadow-dark: #a3b1c6;
@@ -17,175 +19,67 @@
 }
 
 body {
-    background: var(--bg);
+    background-color: var(--bg);
     color: var(--text-color);
     line-height: 1.6;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-    width: 6px;
-}
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-::-webkit-scrollbar-thumb {
-    background: var(--shadow-light);
-    border-radius: 3px;
-}
-
-/* Container */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Section Titles */
-section h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-}
-section {
+/* Overview block */
+.overview {
     padding: 4rem 0;
 }
-
-/* Overview */
-.overview {
-    background: var(--bg);
+.overview__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
-.overview p {
+
+/* How It Works block */
+.how-it-works {
+    padding: 4rem 0;
+}
+.how-it-works__steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Feature List block */
+.feature-list {
+    padding: 4rem 0;
+}
+.feature-list__item {
+    margin-bottom: 2rem;
+}
+
+/* Contact block */
+.contact {
+    padding: 4rem 0;
+}
+.contact__container {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
-    font-size: 1.1rem;
-    line-height: 1.5;
 }
-
-/* How It Works */
-.how-it-works .steps {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 2rem;
-}
-.how-it-works .step {
-    background: var(--bg);
-    padding: 2rem;
-    border-radius: 20px;
-    flex: 1 1 250px;
-    max-width: 300px;
-    box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
-    transition: transform 0.3s ease;
-}
-.how-it-works .step:hover {
-    transform: translateY(-5px);
-}
-.how-it-works .step h3,
-.how-it-works .step p {
-    text-align: center;
+.contact__title {
+    font-size: 2rem;
     margin-bottom: 1rem;
 }
-
-/* Features & Cards */
-.feature-list {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-.feature-list li {
-    background: var(--bg);
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
-    transition: transform 0.3s ease;
-}
-.feature-list li:hover {
-    transform: translateY(-5px);
-}
-.feature-list h3 {
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
-    text-align: center;
-}
-.feature-list p {
-    text-align: center;
-}
-
-/* Benefits & Lists */
-.benefits ul,
-.users ul {
-    list-style: none;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 0;
-}
-.benefits li,
-.users li {
-    background: var(--bg);
-    margin: 1rem 0;
-    padding: 1rem 1.5rem;
-    border-radius: 20px;
-    box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
-    line-height: 1.4;
-}
-.benefits li strong,
-.users li strong {
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-/* CTA Section */
-.cta {
-    text-align: center;
-}
-.cta .button {
-    padding: 14px 40px;
-    font-size: 1.1rem;
-    background: var(--bg);
-    box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: box-shadow 0.3s ease;
-    text-decoration: none;
-    color: var(--text-color);
-}
-.cta .button:hover {
-    box-shadow: inset 8px 8px 16px var(--shadow-dark), inset -8px -8px 16px var(--shadow-light);
-}
-
-/* Contact / Footer */
-.contact {
-    background: var(--bg);
-    padding: 2rem 0;
-    box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
-}
-.contact h2 {
-    text-align: center;
+.contact__text {
     margin-bottom: 1rem;
 }
-.contact p {
-    text-align: center;
-    font-size: 1.1rem;
-}
-.contact a {
+.contact__link {
     color: var(--accent-color);
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
 }
-.contact a:hover {
+.contact__link:hover {
     color: darken(var(--accent-color), 10%);
 }
 
-/* Responsive Adjustments */
+/* Responsive */
 @media (max-width: 768px) {
-    .how-it-works .steps,
+    .how-it-works__steps,
     .feature-list {
-        grid-template-columns: 1fr;
         display: block;
     }
 }
