@@ -2,12 +2,14 @@
 
 /* Neumorphic UI Variables */
 :root {
-    --bg: #ffffff;        /* was #e0e5ec */
+    --bg: #ffffff;        /* white background */
     --fg: #ffffff;
     --shadow-light: #ffffff;
     --shadow-dark: #a3b1c6;
-    --text-color: #333;
+    --text-color: #333333;
     --accent-color: #3498db;
+    --font-family: 'Inter', sans-serif;
+    --transition-speed: 0.3s;
 }
 
 /* Reset & Base */
@@ -15,49 +17,145 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
 }
 
 body {
     background-color: var(--bg);
     color: var(--text-color);
+    font-family: var(--font-family);
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Overview block */
+/* Utility Classes */
+.u-center {
+    text-align: center;
+}
+
+.u-mb--large {
+    margin-bottom: 3rem;
+}
+
+/* Overview Block */
 .overview {
-    padding: 4rem 0;
+    padding: 4rem 1rem;
+    background-color: var(--bg);
 }
 .overview__container {
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 0 1rem;
+}
+.overview__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.overview__text {
+    font-size: 1rem;
+    color: var(--text-color);
 }
 
-/* How It Works block */
+/* How It Works Block */
 .how-it-works {
-    padding: 4rem 0;
+    padding: 4rem 1rem;
+    background-color: var(--bg);
+}
+.how-it-works__container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.how-it-works__title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 .how-it-works__steps {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
+.how-it-works__item {
+    background-color: var(--bg);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow:
+        8px 8px 16px var(--shadow-dark),
+       -8px -8px 16px var(--shadow-light);
+    transition: box-shadow var(--transition-speed);
+}
+.how-it-works__item:hover {
+    box-shadow:
+        4px 4px 8px var(--shadow-dark),
+       -4px -4px 8px var(--shadow-light);
+}
+.how-it-works__item-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+.how-it-works__item-text {
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
 
-/* Feature List block */
+/* Feature List Block */
 .feature-list {
-    padding: 4rem 0;
+    padding: 4rem 1rem;
+    background-color: var(--bg);
+}
+.feature-list__container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.feature-list__title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 .feature-list__item {
     margin-bottom: 2rem;
 }
+.feature-list__item-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+.feature-list__item-text {
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
 
-/* Contact block */
+/* Benefits Block */
+.benefits {
+    padding: 4rem 1rem;
+    background-color: var(--bg);
+}
+.benefits__container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.benefits__title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.benefits__list {
+    list-style: none;
+}
+.benefits__item {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Contact Block */
 .contact {
-    padding: 4rem 0;
+    padding: 4rem 1rem;
+    background-color: var(--bg);
 }
 .contact__container {
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
     text-align: center;
 }
@@ -66,20 +164,37 @@ body {
     margin-bottom: 1rem;
 }
 .contact__text {
+    font-size: 1rem;
     margin-bottom: 1rem;
 }
 .contact__link {
+    font-weight: 600;
     color: var(--accent-color);
     text-decoration: none;
+    transition: color var(--transition-speed);
 }
 .contact__link:hover {
-    color: darken(var(--accent-color), 10%);
+    color: #217dbb;
 }
 
-/* Responsive */
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .how-it-works__steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
-    .how-it-works__steps,
-    .feature-list {
+    .how-it-works__steps {
         display: block;
+    }
+    .how-it-works__item {
+        margin-bottom: 2rem;
+    }
+    .feature-list__container,
+    .benefits__container,
+    .overview__container,
+    .contact__container {
+        padding: 0 1rem;
     }
 }
